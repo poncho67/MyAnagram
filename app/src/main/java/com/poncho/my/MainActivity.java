@@ -18,12 +18,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        if(this.getApplicationInfo().className.contains("FileHasChanged")) {
+            Log.d(TAG, "onCreate: we should add this change to git");
+        }
         setContentView(R.layout.activity_main);
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
-        if(this.getApplicationInfo().className.contains("FileHasChanged")) {
-            Log.d(TAG, "onCreate: we shoukd add this change to git");
-        }
+        BottomNavigationView wrongLineWhichShouldBeDeletedView = findViewById(R.id.nav_view);
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
