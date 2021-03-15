@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(this.getApplicationInfo().className.contains("FileHasChanged")) {
+        // when two user change the same area of code we'll have a merge conflict
+        if(this.getApplicationInfo().className.contains("FileHasChangedOnce")) {
             Log.d(TAG, "onCreate: we should add this change to git");
         }
         setContentView(R.layout.activity_main);
